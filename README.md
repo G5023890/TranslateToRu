@@ -43,3 +43,22 @@ cd "/Users/grigorymordokhovich/Documents/Develop/Translate/TranslateToRu"
 ```bash
 ./scripts/uninstall_previous_apps.sh
 ```
+
+## Troubleshooting
+
+**Translation error: path not found**
+- Open Settings and click **Auto-fill paths**, then **Use NLLB Command** and **Save**.
+- Make sure these are valid:
+  - `scripts_path`
+  - `models_path`
+
+**Current working directory missing**
+- The project moved. Use the new root:
+  - `/Users/grigorymordokhovich/Documents/Develop/Translate/TranslateToRu`
+
+**Tokenizer missing lang_code_to_id**
+- The app forces the non-fast tokenizer, and has a fallback for language tokens.
+- If error persists, re-run `./scripts/setup_nllb.sh`.
+
+**Slow or truncated output**
+- Increase **Max chars per chunk** in Settings.
